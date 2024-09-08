@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'user',
-    'site_tour'
+    'site_tour',
+    'tag',
 ]
 
 MIDDLEWARE = [
@@ -69,6 +70,8 @@ TEMPLATES = [
     },
 ]
 
+AUTH_USER_MODEL = 'user.User'
+
 WSGI_APPLICATION = 'culturama.wsgi.application'
 
 
@@ -83,6 +86,10 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3310',  # Mery yo tengo MaryDB en otro puerto pq tengo MySQL en 3306 
+        'OPTIONS': { 
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'isolation_level': 'read committed',
+       },
     }
 }
 
