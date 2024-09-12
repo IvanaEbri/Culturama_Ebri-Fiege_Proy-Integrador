@@ -50,7 +50,7 @@ CULTURAMA es una aplicación web desarrollada en Python utilizando Django, dise�
 
 - **Backend**: Python, Django
 - **Frontend**: HTML, CSS, JavaScript (con enfoque mobile-first)
-- **Base de Datos**: PostgreSQL
+- **Base de Datos**: MariaDB
 - **APIs**: Integración con APIs de mapas para generación de recorridos
 
 ## Instalación
