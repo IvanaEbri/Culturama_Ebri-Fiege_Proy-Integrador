@@ -57,7 +57,7 @@ ROOT_URLCONF = 'culturama.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,3 +134,24 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# URL a la que se redirige para el login 
+LOGIN_URL = 'Login'
+
+# URL a la que se redirige para el logout
+LOGOUT_URL = 'Logout'
+
+# URL a la que se redirige después de hacer logout
+LOGOUT_REDIRECT_URL = 'home' 
+
+'''
+Settings del proyecto de Coquette Steps
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/User/login/"
+
+LOGIN_URL = "/User/login/"
+LOGOUT_URL = "/User/logout/"
+
+'''
