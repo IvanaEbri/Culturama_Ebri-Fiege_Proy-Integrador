@@ -14,6 +14,10 @@ class Site_tour(models.Model):
     journey_time = models.TimeField(null=True, blank=True, verbose_name='Tiempo de recorrido')
     site_type = models.IntegerField(choices=TYPE, default=TYPE[0][0], verbose_name='Tipo', null=True, blank=True)
     accesibility = models.TextField(null=True, blank=True, verbose_name='Accesibilidad')
+    state = models.BooleanField(default=True)
 
     def __str__(self):
         return self.site_name
+
+    def get_material_display(self):
+        return dict(TYPE).get(self.site_type, "Desconocido")

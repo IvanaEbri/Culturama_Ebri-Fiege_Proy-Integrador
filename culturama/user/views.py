@@ -3,7 +3,7 @@ from .forms import UserCreationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic.edit import CreateView
-from django.views.generic import View
+from django.views.generic import TemplateView
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
@@ -30,6 +30,10 @@ class UserRegisterView (CreateView):
             for error in errors:
                 messages.error(self.request, f"{error}")
         return super().form_invalid(form)
+
+    def get_context_data (self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
 
 class UserLoginView (LoginView):
     template_name = 'login.html'
@@ -58,8 +62,16 @@ class UserLoginView (LoginView):
         )  # Mensaje de error
         return super().form_invalid(form)
 
+    def get_context_data (self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
 class UserLogoutView (LogoutView):
     next_page = reverse_lazy('home')  # Redirige a la página principal después del logout
 
-class UserConfirmLogoutView (LoginRequiredMixin, View):
+class UserConfirmLogoutView (LoginRequiredMixin, TemplateView):
     template_name = 'logout.html'
+
+    def get_context_data (self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context

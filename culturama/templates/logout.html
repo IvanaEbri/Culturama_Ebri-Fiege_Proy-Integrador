@@ -4,10 +4,10 @@
 {% block body %}
 {% load static %}
 <h2>¿Quieres cerrar sesión?</h2>
-    <form action="{% url 'logout' %}" method="post">
+    <form action="{% url 'Logout' %}" method="post">
         {% csrf_token %}
         <div>
-            <button type="submit" action="{% url 'logout' %}">Cerrar Sesion</button>
+            <button type="submit">Cerrar Sesion</button>
         </div>
     </form>
     </div>

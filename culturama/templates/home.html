@@ -5,6 +5,8 @@
 {% load static %}
 <h2>Home provisional</h2>
 
+<p>{{ user.username }}<p>
+
 <div>
     <a href="{% url 'Login' %}">
         <button>Login</button></a>
@@ -12,6 +14,10 @@
 <div>
     <a href="{% url 'ConfirmLogout' %}">
         <button>Logout</button></a>
+</div>
+<div>
+    <a href="{% url 'Register' %}">
+        <button>Registro</button></a>
 </div>
 
 {% endblock %}
