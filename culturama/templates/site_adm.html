@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Sitios - ☀️{% endblock %}
+{% block body %}
+{% load static %}
+<h2>Sitios</h2>
+
+<div>
+    <table>
+        {% if sites_tour %}
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Imagen</th>
+                <th>Direccion</th>
+                <th>Etiquetas</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for site in sites_tour %}
+                <tr>
+                    <td>{{ site.site_name }}</td>
+                    <td>    
+                        {% if site.image %}
+                            <img src="{{ site.image.url }}" alt="{{ site.site_name }}">
+                        {% else %}
+                            <p>Sin imagen disponible</p>
+                        {% endif %}
+                    </td>
+                    <td>{{ site.adress }}</td>
+                    <td>etiquetas a configurar</td>
+                    <td>
+                        {% if site.state == True %}
+                            <p>Activo</p>
+                        {% else %}
+                            <p>Inactivo</p>
+                        {% endif %}                        
+                    </td>
+                    <td>
+                        <a href="{% url 'EditSite' site.pk %}">
+                            <i class="fa-solid fa-pen-to-square edit" ></i>
+                        </a>
+                        <a href="{% url 'DeleteSite' site.pk %}">
+                            <i class="fa-solid fa-trash delete"></i>
+                        </a>
+                    </td> 
+                    </tr>
+                {% endfor %}
+            </tbody>
+        {% else %}
+            <tr><td>No se registran sitios</td></tr>
+            <tr><td>
+                <a href="{% url 'CreateSite' %}">
+                    <button>Crear +</button>
+                </a>
+            </td></tr>
+        {% endif %}
+    </table>
+</div>
+{% endblock %}
