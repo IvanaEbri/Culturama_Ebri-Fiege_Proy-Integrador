@@ -23,6 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('user.urls')),
     path('site/', include('site_tour.urls')),
-    path('tag/', include('tag.urls')),
+    #path('tag/', include('tag.urls')),
     path('', home, name='home'),
 ]

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Desactivar Sitio - ☀️{% endblock %}
+{% block body %}
+{% load static %}
+
+<h1>Desactivar Sitio</h1>
+    <p>¿Estás seguro de que deseas desctivar este sitio?</p>
+    <p><b>Nombre: {{ object.site_name }}</b></p>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Desactivar</button>
+    </form>
+    <div>
+        <a href="{% url 'SiteAdmin' %}">
+            <button>Cancelar</button></a>
+        </div>
+{% endblock %}

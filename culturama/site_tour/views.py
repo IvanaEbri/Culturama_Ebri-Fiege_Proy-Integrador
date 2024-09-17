@@ -61,7 +61,7 @@ class EditarSiteView(UpdateView):
 class EliminarSiteView(DeleteView):
     model = Site_tour
     form_class = DeleteForm
-    template_name = 'prod_del_admin.html'
+    template_name = 'site_del.html'
     success_url = reverse_lazy('SitesAdmin')
 
     def delete(self, request, *args, **kwargs):
