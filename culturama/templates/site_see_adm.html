@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}{{site.site_name}} - ☀️{% endblock %}
+{% block body %}
+{% load static %}
+<a href="{% url 'SitesAdmin' %}">
+    <button>Volver</button>
+</a>
+<h2>{{site.site_name}}</h2>
+<div>
+    <a href="{% url 'EditSite' site.pk %}">
+        <i class="fa-solid fa-pen-to-square edit" ></i>
+    </a>
+    <a href="{% url 'DeleteSite' site.pk %}">
+        <i class="fa-solid fa-trash delete"></i>
+    </a>
+</div>
+<p><b>Descripción: </b>{{site.description}}</p>
+<p><b>Pagina web: </b><a href="{{site.url}}">{{site.url}}</a></p>
+<p><b>Imagen: </b></p>
+<img src="{{ site.image.url }}" alt="{{ site.site_name }}">
+<p><b>Etiquetas: </b>a incorporar</p>
+<p><b>Direccion: </b>{{site.adress}}</p>
+<p><b>Coordenadas: </b>{{site.coordinates}}</p>
+<p><b>Tiempo de recorrido: </b>{{site.journey_time}}</p>
+<p><b>Tipo: </b>{{site.get_type_display}}</p>
+<p><b>Accesibilidad: </b>{{site.accesibility}}</p>
+<p><b>Estado: </b>{{site.state}}</p>
+{% endblock %}

@@ -4,7 +4,11 @@
 {% block body %}
 {% load static %}
 <h2>Sitios</h2>
-
+{% if sites_tour %}
+    <a href="{% url 'CreateSite' %}">
+        <button>Crear +</button>
+    </a>
+{% endif %}
 <div>
     <table>
         {% if sites_tour %}
@@ -15,6 +19,7 @@
                 <th>Direccion</th>
                 <th>Etiquetas</th>
                 <th>Estado</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -38,6 +43,9 @@
                         {% endif %}                        
                     </td>
                     <td>
+                        <a href="{% url 'SeeSite' site.pk %}">
+                            <i class="fa-solid fa-eye"></i>
+                        </a>
                         <a href="{% url 'EditSite' site.pk %}">
                             <i class="fa-solid fa-pen-to-square edit" ></i>
                         </a>

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -16,7 +16,7 @@ class SitesAdminView(TemplateView):
     def get_context_data (self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['sites_tour'] = Site_tour.objects.all()
-        return 
+        return context
     
 class CreateSiteView(CreateView):
     model = Site_tour
@@ -38,7 +38,7 @@ class CreateSiteView(CreateView):
                 messages.error(self.request, f"{error}")
         return super().form_invalid(form)
 
-class EditarSiteView(UpdateView):
+class EditSiteView(UpdateView):
     model = Site_tour
     form_class = SiteForm
     template_name = 'site_new_edit.html'
@@ -58,16 +58,23 @@ class EditarSiteView(UpdateView):
                 messages.error(self.request, f"{error}")
         return super().form_invalid(form)
 
-class EliminarSiteView(DeleteView):
+class DeleteSiteView(DeleteView):
     model = Site_tour
     form_class = DeleteForm
     template_name = 'site_del.html'
     success_url = reverse_lazy('SitesAdmin')
 
-    def delete(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         self.object = self.get_object()
-        success_url = self.get_success_url()
         self.object.state = False  # Cambiamos el atributo activo a False
         self.object.save()
         messages.success(request, 'El sitio se ha inactivado.')
-        return super().delete(request, *args, **kwargs)
+        return redirect(self.success_url)
+
+class SeeSiteAdminView(TemplateView):
+    template_name = 'site_see_adm.html'
+
+    def get_context_data (self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['site'] = Site_tour.objects.get(pk=kwargs['pk'])
+        return context

@@ -19,5 +19,5 @@ class Site_tour(models.Model):
     def __str__(self):
         return self.site_name
 
-    def get_material_display(self):
+    def get_type_display(self):
         return dict(TYPE).get(self.site_type, "Desconocido")

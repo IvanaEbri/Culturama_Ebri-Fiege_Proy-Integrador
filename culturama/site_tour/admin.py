@@ -20,4 +20,4 @@ class SitesAdmin(admin.ModelAdmin):
         }),
     )
 
-admin.site.register(Site_tour)
+admin.site.register(Site_tour, SitesAdmin)

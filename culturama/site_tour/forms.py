@@ -37,4 +37,4 @@ class SiteForm(forms.ModelForm):
         }
 
 class DeleteForm(forms.Form):
-    confirm_delete = forms.BooleanField(label='Confirmar eliminación', required=True)
+    confirm_delete = forms.BooleanField(label='Confirmar eliminación', required=True, initial=True)
