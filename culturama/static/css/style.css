@@ -4,3 +4,15 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.img-div {
+    width: 50px;
+    max-height: 100px;
+    justify-content: center;
+    align-items: center;
+}

@@ -28,7 +28,9 @@
                     <td>{{ site.site_name }}</td>
                     <td>    
                         {% if site.image %}
+                            <div class=img-div>
                             <img src="{{ site.image.url }}" alt="{{ site.site_name }}">
+                            </div>
                         {% else %}
                             <p>Sin imagen disponible</p>
                         {% endif %}

@@ -4,13 +4,13 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from .models import Site_tour
 from .forms import SiteForm, DeleteForm
-
+from user.views import StaffRequiredMixin
 # Create your views here.
 
 def home(request):
     return render(request, 'home.html')
 
-class SitesAdminView(TemplateView):
+class SitesAdminView(TemplateView, StaffRequiredMixin):
     template_name = 'site_adm.html'
 
     def get_context_data (self, **kwargs):
@@ -18,7 +18,7 @@ class SitesAdminView(TemplateView):
         context['sites_tour'] = Site_tour.objects.all()
         return context
     
-class CreateSiteView(CreateView):
+class CreateSiteView(CreateView, StaffRequiredMixin):
     model = Site_tour
     form_class = SiteForm
     template_name = 'site_new_edit.html'
@@ -38,7 +38,7 @@ class CreateSiteView(CreateView):
                 messages.error(self.request, f"{error}")
         return super().form_invalid(form)
 
-class EditSiteView(UpdateView):
+class EditSiteView(UpdateView, StaffRequiredMixin):
     model = Site_tour
     form_class = SiteForm
     template_name = 'site_new_edit.html'
@@ -58,7 +58,7 @@ class EditSiteView(UpdateView):
                 messages.error(self.request, f"{error}")
         return super().form_invalid(form)
 
-class DeleteSiteView(DeleteView):
+class DeleteSiteView(DeleteView, StaffRequiredMixin):
     model = Site_tour
     form_class = DeleteForm
     template_name = 'site_del.html'

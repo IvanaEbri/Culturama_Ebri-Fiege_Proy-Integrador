@@ -11,6 +11,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
+class StaffRequiredMixin(LoginRequiredMixin):
+    #verifica si el usuario no esta autentificado o activo y lo lleva al login
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated or not request.user.is_staff:
+            return redirect(reverse_lazy('login'))
+        return super().dispatch(request, *args, **kwargs)
 
 class UserRegisterView (CreateView):
     form_class = UserCreationForm
