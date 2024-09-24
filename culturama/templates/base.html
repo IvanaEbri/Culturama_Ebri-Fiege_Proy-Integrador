@@ -9,6 +9,15 @@
     <link rel="icon" type="image/png" href="{% static 'image/logo.png' %}">
 </head>
 <body>
+    <!-- bloque para mostrar mesajes -->
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
     <header> {% block header %} {% endblock %} </header>
     <main> {% block body %} {% endblock %} </main>
     <footer> {% block footer %} {% endblock %} </footer>
