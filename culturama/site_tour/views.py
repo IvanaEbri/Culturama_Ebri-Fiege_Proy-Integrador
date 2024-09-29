@@ -41,7 +41,7 @@ class EditSiteView(StaffRequiredMixin, UpdateView):
     model = Site_tour
     form_class = SiteForm
     template_name = 'site_new_edit.html'
-    success_url = reverse_lazy('SiteAdmin')
+    success_url = reverse_lazy('SitesAdmin')
 
     def form_valid(self, form):
         user = form.save(commit=False)
@@ -59,7 +59,7 @@ class DeleteSiteView(StaffRequiredMixin, DeleteView):
     model = Site_tour
     form_class = DeleteForm
     template_name = 'site_del.html'
-    success_url = reverse_lazy('SitesAdmi')
+    success_url = reverse_lazy('SitesAdmin')
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
