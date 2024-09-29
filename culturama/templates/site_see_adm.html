@@ -17,8 +17,13 @@
 </div>
 <p><b>Descripción: </b>{{site.description}}</p>
 <p><b>Pagina web: </b><a href="{{site.url}}">{{site.url}}</a></p>
-<p><b>Imagen: </b></p>
-<img src="{{ site.image.url }}" alt="{{ site.site_name }}">
+<p><b>Imagen: </b>
+    {% if site.image %}
+        <img src="{{ site.image.url }}" alt="{{ site.site_name }}">
+    {% else %}
+        <p>Sin imagen disponible</p>
+    {% endif %}
+</p>
 <p><b>Etiquetas: </b>a incorporar</p>
 <p><b>Direccion: </b>{{site.adress}}</p>
 <p><b>Coordenadas: </b>{{site.coordinates}}</p>
