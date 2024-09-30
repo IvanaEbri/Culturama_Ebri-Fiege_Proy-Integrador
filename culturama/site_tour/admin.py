@@ -13,7 +13,7 @@ class SitesAdmin(admin.ModelAdmin):
             'fields': ('site_name', 'url', 'image')
         }),
         ('Información', {
-            'fields': ('description','address', 'coordinates', 'journey_time', 'site_type', 'accesibility')
+            'fields': ('description','adress', 'coordinates', 'journey_time', 'site_type', 'accesibility')
         }),
         ('Acciones', {
             'fields': ('state',)
