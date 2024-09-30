@@ -12,6 +12,7 @@ class Site_tour(models.Model):
     id_site_tour = models.AutoField(primary_key=True)
     site_name = models.CharField(max_length=100, verbose_name='Nombre', blank=True)
     description = models.TextField(verbose_name='Descripcion', blank=True)
+    tags = models.ManyToManyField('tag.Tag', through='tag.Site_tag')
     url = models.URLField(verbose_name='Url')
     image = models.ImageField( null=True, blank=True, verbose_name='Imagen')
     adress = models.CharField(max_length=100, verbose_name='Dirección', null=True, blank=True)

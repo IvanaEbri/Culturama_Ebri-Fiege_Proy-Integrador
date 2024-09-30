@@ -10,8 +10,11 @@ class Tag (models.Model):
 
 class Site_tag(models.Model):
     id_site_tag = models.IntegerField(primary_key=True)
-    id_site = models.ForeignKey('site_tour.Site_tour', on_delete=models.CASCADE, null=False, blank=False)
-    id_tag = models.ForeignKey('tag.Tag', on_delete=models.CASCADE, null=False, blank=False)
+    site_tour = models.ForeignKey('site_tour.Site_tour', on_delete=models.CASCADE, null=False, blank=False)
+    tag = models.ForeignKey('tag.Tag', on_delete=models.CASCADE, null=False, blank=False)
 
     def __str__(self):
-        return self.id_tag.tag
+        return (f"{self.site_tour} - {self.tag}")
+
+    class Meta:
+        unique_together = ('site_tour', 'tag')

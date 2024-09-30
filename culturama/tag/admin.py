@@ -15,12 +15,12 @@ class TagAdmin(admin.ModelAdmin):
 
 class Site_tagAdmin(admin.ModelAdmin):
     model = Site_tag
-    list_display = ('id_site_tag', 'id_site', 'id_tag')
-    list_filter = ('id_site', 'id_tag')
+    list_display = ('id_site_tag', 'site_tour', 'tag')
+    list_filter = ('site_tour', 'tag')
 
     fieldsets = (
         (None, {
-            'fields': ('id_site', 'id_tag')
+            'fields': ('site_tour', 'tag')
         }),
     )
 
