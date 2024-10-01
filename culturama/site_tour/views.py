@@ -34,7 +34,7 @@ class CreateSiteView(StaffRequiredMixin, CreateView):
         user.save()
         tags = form.cleaned_data['tags']
         for tag in tags:
-            SiteTag.objects.create(site=self.object, tag=tag)
+            Site_tag.objects.create(site_tour=self.object, tag=tag)
         return response
 
     def form_invalid(self, form):
@@ -56,11 +56,11 @@ class EditSiteView(StaffRequiredMixin, UpdateView):
         response = super().form_valid(form)
         
         # Eliminar todas las etiquetas previas
-        SiteTag.objects.filter(site=self.object).delete()
+        Site_tag.objects.filter(site_tour=self.object).delete()
         # Añadir las nuevas etiquetas
         tags = form.cleaned_data['tags']
         for tag in tags:
-            SiteTag.objects.create(site=self.object, tag=tag)
+            Site_tag.objects.create(site_tour=self.object, tag=tag)
         
         return response
 
