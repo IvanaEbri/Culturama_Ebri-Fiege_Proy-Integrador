@@ -36,7 +36,20 @@
                         </div>
                     </td>
                     <td>{{ site.adress }}</td>
-                    <td>etiquetas a configurar</td>
+                    <td>
+                    {% comment %} etiquetas a configurar {% endcomment %}
+                        {% with site_tags=site.site_tag_set.all %}
+                            {% if site_tags %}
+                                <ul>
+                                    {% for site_tag in site_tags %}
+                                        <li>{{ site_tag.tag.tag }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p>Sin etiquetas asignadas</p>
+                            {% endif %}
+                        {% endwith %}
+                    </td>
                     <td>
                         {% if site.state == True %}
                             <p>Activo</p>

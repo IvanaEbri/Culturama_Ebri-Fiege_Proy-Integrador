@@ -24,7 +24,17 @@
         <p>Sin imagen disponible</p>
     {% endif %}
 </p>
-<p><b>Etiquetas: </b>a incorporar</p>
+<p><b>Etiquetas: </b>
+{% if site_tag %}
+    <ul>
+    {% for relation in site_tag %}
+        <li>{{ relation.tag.tag }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Sin etiquetas asignadas</p>
+{% endif %}
+</p>
 <p><b>Direccion: </b>{{site.adress}}</p>
 <p><b>Coordenadas: </b>{{site.coordinates}}</p>
 <p><b>Tiempo de recorrido: </b>{{site.journey_time}}</p>

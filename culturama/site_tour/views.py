@@ -5,6 +5,7 @@ from django.contrib import messages
 from .models import Site_tour
 from .forms import SiteForm, DeleteForm
 from user.views import StaffRequiredMixin
+from tag.models import Site_tag
 
 def home(request):
     return render(request, 'home.html')
@@ -15,7 +16,10 @@ class SitesAdminView(StaffRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['sites_tour'] = Site_tour.objects.all()
+        #context['sites_tour'] = Site_tour.objects.all()
+        context['sites_tour'] = Site_tour.objects.all().prefetch_related('site_tag_set__tag')
+        #context['sites_tag'] = Site_tag.objects.all()
+        
         return context
     
 # craer un nuevo sitio
@@ -28,7 +32,10 @@ class CreateSiteView(StaffRequiredMixin, CreateView):
     def form_valid(self, form):
         user = form.save(commit=False)
         user.save()
-        return super().form_valid(form)
+        tags = form.cleaned_data['tags']
+        for tag in tags:
+            SiteTag.objects.create(site=self.object, tag=tag)
+        return response
 
     def form_invalid(self, form):
         for field, errors in form.errors.items():
@@ -46,7 +53,16 @@ class EditSiteView(StaffRequiredMixin, UpdateView):
     def form_valid(self, form):
         user = form.save(commit=False)
         user.save()
-        return super().form_valid(form)
+        response = super().form_valid(form)
+        
+        # Eliminar todas las etiquetas previas
+        SiteTag.objects.filter(site=self.object).delete()
+        # Añadir las nuevas etiquetas
+        tags = form.cleaned_data['tags']
+        for tag in tags:
+            SiteTag.objects.create(site=self.object, tag=tag)
+        
+        return response
 
     def form_invalid(self, form):
         for field, errors in form.errors.items():
@@ -74,5 +90,7 @@ class SeeSiteAdminView(StaffRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['site'] = Site_tour.objects.get(pk=kwargs['pk'])
+        site_one = Site_tour.objects.get(pk=kwargs['pk'])
+        context['site'] = site_one
+        context['site_tag'] = Site_tag.objects.filter(site_tour=site_one)
         return context

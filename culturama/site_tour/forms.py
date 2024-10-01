@@ -1,7 +1,13 @@
 from django import forms
 from .models import Site_tour
+from tag.models import Tag
 
 class SiteForm(forms.ModelForm):
+    tags = forms.ModelMultipleChoiceField(
+        queryset=Tag.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=True
+    )
     class Meta:
         model = Site_tour
         fields = [
