@@ -3,31 +3,33 @@
 {% block title %}Sitios - ☀️{% endblock %}
 {% block body %}
 {% load static %}
-<h2>Sitios</h2>
-{% if sites_tour %}
-    <a href="{% url 'CreateSite' %}">
-        <button>Crear +</button>
-    </a>
-{% endif %}
-<div>
-    <table>
+
+<div class="container">
+    <div class="left-table">
+        <h2>Sitios</h2>
         {% if sites_tour %}
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Imagen</th>
-                <th>Direccion</th>
-                <th>Etiquetas</th>
-                <th>Estado</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for site in sites_tour %}
+            <a href="{% url 'CreateSite' %}">
+                <button>Crear +</button>
+            </a>
+        {% endif %}
+        <table>
+            {% if sites_tour %}
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Imagen</th>
+                    <th>Dirección</th>
+                    <th>Etiquetas</th>
+                    <th>Estado</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for site in sites_tour %}
                 <tr>
                     <td>{{ site.site_name }}</td>
                     <td>
-                        <div class="img-div">    
+                        <div class="img-div">
                         {% if site.image %}
                             <img src="{{ site.image.url }}" alt="{{ site.site_name }}">
                         {% else %}
@@ -42,30 +44,62 @@
                             <p>Activo</p>
                         {% else %}
                             <p>Inactivo</p>
-                        {% endif %}                        
+                        {% endif %}
                     </td>
                     <td>
                         <a href="{% url 'SiteSeeAdmin' site.pk %}">
                             <i class="fa-solid fa-eye"></i>
                         </a>
                         <a href="{% url 'EditSite' site.pk %}">
-                            <i class="fa-solid fa-pen-to-square edit" ></i>
+                            <i class="fa-solid fa-pen-to-square edit"></i>
                         </a>
                         <a href="{% url 'DeleteSite' site.pk %}">
                             <i class="fa-solid fa-trash delete"></i>
                         </a>
-                    </td> 
-                    </tr>
+                    </td>
+                </tr>
                 {% endfor %}
             </tbody>
-        {% else %}
+            {% else %}
             <tr><td>No se registran sitios</td></tr>
             <tr><td>
                 <a href="{% url 'CreateSite' %}">
                     <button>Crear +</button>
                 </a>
             </td></tr>
-        {% endif %}
-    </table>
+            {% endif %}
+        </table>
+    </div>
+
+    <div class="right-table">
+        <h2>Etiquetas</h2>
+        <a href="{% url 'CreateTag' %}">
+            <button>Crear +</button>
+        </a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Etiqueta</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tag in tags %}
+                <tr>
+                    <td>{{ tag.tag }}</td>
+                    <td>
+                        <a href="{% url 'EditTag' tag.pk %}">
+                            <i class="fa-solid fa-pen-to-square edit"></i>
+                        </a>
+                        <a href="{% url 'SeeTag' tag.pk %}">
+                            <i class="fa-solid fa-eye"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
+
 {% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Etiqueta - {{ tag.tag }}{% endblock %}
+
+{% block body %}
+{% load static %}
+
+<a href="{% url 'SitesAdmin' %}">
+    <button>Volver</button>
+</a>
+
+<h2>Detalles de la Etiqueta: {{ tag.tag }}</h2>
+
+<p><b>Etiqueta: </b>{{ tag.tag }}</p>
+
+{% endblock %}
