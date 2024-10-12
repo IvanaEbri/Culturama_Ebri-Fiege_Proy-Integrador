@@ -5,7 +5,7 @@ from django.contrib import messages
 from .models import Site_tour
 from .forms import SiteForm, DeleteForm
 from user.views import StaffRequiredMixin
-from tag.models import Site_tag
+from tag.models import Site_tag, Tag
 
 def home(request):
     return render(request, 'home.html')
@@ -16,10 +16,10 @@ class SitesAdminView(StaffRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        #context['sites_tour'] = Site_tour.objects.all()
+#context['sites_tour'] = Site_tour.objects.all()
         context['sites_tour'] = Site_tour.objects.all().prefetch_related('site_tag_set__tag')
-        #context['sites_tag'] = Site_tag.objects.all()
-        
+        #context['sites_tag'] = Site_tag.objects.all() 
+        context['tags'] = Tag.objects.all()
         return context
     
 # craer un nuevo sitio

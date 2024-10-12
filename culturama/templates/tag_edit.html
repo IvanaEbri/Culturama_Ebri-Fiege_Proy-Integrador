@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if form.instance.pk %}
+        Editar Etiqueta
+    {% else %}
+        Crear Etiqueta
+    {% endif %} - ☀️{% endblock %}
+{% block body %}
+{% load static %}
+
+<h1>{% if form.instance.pk %}Editar Etiqueta
+    {% else %}Registrar Nuevo Etiqueta{% endif %}</h1>
+    
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">
+            {% if form.instance.pk %}Actualizar{% else %}Crear{% endif %}
+        </button>
+    </form>
+{% endblock %}

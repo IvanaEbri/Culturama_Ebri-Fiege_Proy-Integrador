@@ -1,6 +1,8 @@
 from django.urls import path
-from site_tour.views import SitesAdminView
+from .views import *
 
 urlpatterns = [
-    path('admin/', SitesAdminView.as_view(), name='SitesAdmin'),
+    path('tags/see/<int:pk>/', TagSeeView.as_view(), name='SeeTag'),
+    path('tags/add/', CreateTagView.as_view(), name='CreateTag'),
+    path('tags/edit/<int:pk>/', TagEditView.as_view(), name='EditTag'),
 ]

@@ -16,3 +16,73 @@ img {
     justify-content: center;
     align-items: center;
 }
+
+/*ESTILOS PARA login*/
+
+/*ESTILOS PARA logout*/
+
+/*ESTILOS PARA register*/
+
+/*ESTILOS PARA home*/
+
+/*ESTILOS PARA site admin*/
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.left-table, .right-table {
+    width: 48%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+table td img {
+    max-width: 100px;
+    height: auto;
+}
+
+button {
+    margin-bottom: 10px;
+}
+
+.right-table {
+    margin-left: 20px;
+}
+
+.img-div {
+    width: 100px;
+    height: auto;
+}
+
+.fa-pen-to-square, .fa-trash {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+
+/*ESTILOS PARA site delete*/
+
+/*ESTILOS PARA site new*/
+
+/*ESTILOS PARA site see*/
+
+/*ESTILOS PARA tag edit */
+
+/*ESTILOS PARA tag new*/
+
+/*ESTILOS PARA tag see*/
