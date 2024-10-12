@@ -30,11 +30,13 @@ class CreateSiteView(StaffRequiredMixin, CreateView):
     success_url = reverse_lazy('SitesAdmin')
 
     def form_valid(self, form):
-        user = form.save(commit=False)
-        user.save()
+        site_new = form.save(commit=False)
+        site_new.save()
+        response = super().form_valid(form)
+        
         tags = form.cleaned_data['tags']
         for tag in tags:
-            Site_tag.objects.create(site_tour=self.object, tag=tag)
+            Site_tag.objects.create(site_tour=site_new, tag=tag)
         return response
 
     def form_invalid(self, form):
@@ -51,8 +53,8 @@ class EditSiteView(StaffRequiredMixin, UpdateView):
     success_url = reverse_lazy('SitesAdmin')
 
     def form_valid(self, form):
-        user = form.save(commit=False)
-        user.save()
+        site_edit = form.save(commit=False)
+        site_edit.save()
         response = super().form_valid(form)
         
         # Eliminar todas las etiquetas previas
