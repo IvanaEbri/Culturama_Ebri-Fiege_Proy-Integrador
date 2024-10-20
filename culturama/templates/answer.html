@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Tu Recorrido{% endblock %}
+
+{% block body %}
+<div class="answer-container">
+    <h1>Tu recorrido personalizado</h1>
+
+
+    <p>Has seleccionado {{ num_paradas }} {{ num_paradas|pluralize:"lugar,lugares" }} con la temática "{{ tag.tag }}".</p>
+
+
+    <div class="places-list">
+        {% for lugar in lugares %}
+            <div class="place-card">
+                <h2>{{ lugar.site_name }}</h2>
+                <p>{{ lugar.adress }}</p>
+                <p>{{ lugar.description }}</p>
+                <td>
+                    <div class="img-div-2">
+                    {% if lugar.image %}
+                        <img src="{{ lugar.image.url }}" alt="{{ lugar.site_name }}">
+                    {% else %}
+                        <p>Sin imagen disponible</p>
+                    {% endif %}
+                    </div>
+                </td>
+            </div>
+        {% empty %}
+            <p>No se encontraron lugares para esta etiqueta.</p>
+        {% endfor %}
+    </div>
+</div>
+
+<div>
+    <a href="{% url 'HomeUser' %}" class="btn">Volver al inicio</a>
+</div>
+{% endblock %}

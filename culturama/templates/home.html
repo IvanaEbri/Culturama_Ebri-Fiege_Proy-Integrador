@@ -1,28 +1,31 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}HOME - ☀️{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/logoo.png' %}">
+    
+</head>
+<body>
+    <div class="home-container">
+        <img src="{% static 'images/cultu.png' %}" alt="Logo de Culturama" class="home-logo">
+        <br>
+        <p class="home-description">Inicia sesión o regístrate para continuar.</p>
 
-{% block title %}HOME - ☀️{% endblock %}
-{% block body %}
-{% load static %}
-<h2>Home provisional</h2>
+        <div class="button-container">
+            <a href="{% url 'Login' %}">
+                <button class="home-button">Login</button>
+            </a>
+            
+            <a href="{% url 'Register' %}">
+                <button class="home-button">Registro</button>
+            </a>
+        </div>
 
-<p>{{ user.username }}<p>
+    </div>
 
-<div>
-    <a href="{% url 'Login' %}">
-        <button>Login</button></a>
-</div>
-<div>
-    <a href="{% url 'ConfirmLogout' %}">
-        <button>Logout</button></a>
-</div>
-<div>
-    <a href="{% url 'Register' %}">
-        <button>Registro</button></a>
-</div>
-<div>
-    <a href="{% url 'SitesAdmin' %}">
-        <button>Admin</button></a>
-</div>
-
-
-{% endblock %}
+</body>
+</html>

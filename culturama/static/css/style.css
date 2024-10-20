@@ -2,28 +2,158 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Arial', sans-serif; 
 }
 
-img {
-    max-width: 100%;
-    height: auto;
+body {
+    background-color: #FAFAFA !important; /* Fondo claro PARA EL RESTO DE LOS HTML */
+    color: #333333; /* Texto oscuro */
 }
 
-.img-div {
-    width: 50px;
-    max-height: 100px;
-    justify-content: center;
+/* Navbar */
+.navbar {
+    background-color: #2B3C4F; 
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    border-bottom: 2px solid #233140;
 }
 
-/*ESTILOS PARA login*/
+/* Menú hamburguesa */
+.nav-hamburguer {
+    flex: 1;
+}
 
-/*ESTILOS PARA logout*/
+.nav-hamburguer button {
+    font-size: 2em;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
 
-/*ESTILOS PARA register*/
+/* Dropdown menu */
+#dropdownMenu {
+    background-color: #2B3C4F; /* Verde claro */
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-/*ESTILOS PARA home*/
+#dropdownMenu ul li {
+    padding: 10px;
+}
+
+#dropdownMenu ul li a {
+    color: #004D40;
+    text-decoration: none;
+}
+
+/* Título del Navbar en el centro */
+.title-navbar {
+    flex: 1;
+    font-size: 1.8em;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+/* Usuario en el lado derecho */
+.nav-user {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.username {
+    font-size: 1.5em;
+    color: #6C93B9;
+}
+
+/* Carrusel */
+.carousel img {
+    height: 450px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Sombras suaves para mayor profundidad */
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: #2B3C4F;
+    border-radius: 50%;
+}
+
+/* Botones de navegación */
+.home-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.home-buttons a {
+    text-decoration: none;
+}
+
+.home-buttons button {
+    background-color: #6C93B9;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.4em;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.home-buttons button:hover {
+    background-color: #6C93B9; /* Color más oscuro para hover */
+    transform: translateY(-3px); /* Pequeña animación al hacer hover */
+}
+
+.recorrido-container {
+    text-align: center;  /* Centra el texto dentro del contenedor */
+    margin-top: 50px;  /* Añade un margen superior */
+}
+
+.recorrido-container h1 {
+    color: #2B3C4F;  /* Color del título */
+    font-size: 2em;  /* Ajusta el tamaño del texto */
+}
+
+button[type="submit"] {
+    background-color: #6C93B9;  /* Color de fondo del botón */
+    color: white;  /* Color del texto del botón */
+    border: none;
+    padding: 15px 30px;  /* Añade un poco de padding */
+    border-radius: 5px;  /* Bordes redondeados */
+    font-size: 1.2em;  /* Tamaño de fuente */
+    cursor: pointer;  /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease;  /* Suaviza el cambio de color */
+}
+
+button[type="submit"]:hover {
+    background-color: #161f29;  /* Color al pasar el mouse sobre el botón */
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los botones se ajusten en múltiples líneas */
+    gap: 15px; /* Espacio entre botones */
+    justify-content: center; /* Centra los botones */
+    margin-top: 20px; /* Espacio superior */
+}
+
+.button-group .btn {
+    padding: 10px 20px; /* Ajusta el padding según sea necesario */
+    font-size: 1.2em; /* Tamaño de fuente */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Animación al pasar el mouse */
+}
+
+.button-group .btn:hover {
+    background-color: #0056b3; /* Color al pasar el mouse */
+}
 
 /*ESTILOS PARA site admin*/
 .container {
@@ -74,15 +204,54 @@ button {
     cursor: pointer;
 }
 
+/*ESTILOS PARA EL MAPA*/
+#map {
+    height: 600px;
+    width: 100%;
+}
 
-/*ESTILOS PARA site delete*/
+/*ESTILOS DEL home.html*/
+/*
+body {
+    background-color: #2B3C4F !important; 
+    color: #333333; 
+}
 
-/*ESTILOS PARA site new*/
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
 
-/*ESTILOS PARA site see*/
 
-/*ESTILOS PARA tag edit */
 
-/*ESTILOS PARA tag new*/
+.home-description {
+    font-size: 1.2em;
+    color: #FAFAFA; 
+    margin-bottom: 40px;
+}
 
-/*ESTILOS PARA tag see*/
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.home-button {
+    background-color: #6C93B9; 
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.4em;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.home-button:hover {
+    background-color: #0056b3; 
+    transform: translateY(-3px); 
+}*/

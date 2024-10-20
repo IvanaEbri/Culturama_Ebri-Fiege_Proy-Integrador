@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Mapa Interactivo{% endblock %}
+
+{% block body %}
+<h1>Mapa de Sitios de Interes Cultural</h1>
+<div id="map"></div>
+
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+
+{% endblock %}
+
+{% block footer %}
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+{% endblock %}

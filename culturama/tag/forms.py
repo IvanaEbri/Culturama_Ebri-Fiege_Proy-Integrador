@@ -11,3 +11,4 @@ class TagForm(forms.ModelForm):
         widgets = {
             'tag': forms.TextInput(attrs={'class': 'form-control'}),
         }
+

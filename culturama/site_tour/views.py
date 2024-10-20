@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView
+from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView, FormView
 from django.urls import reverse_lazy
 from django.contrib import messages
 from .models import Site_tour
 from .forms import SiteForm, DeleteForm
 from user.views import StaffRequiredMixin
 from tag.models import Site_tag, Tag
+
 
 def home(request):
     return render(request, 'home.html')
@@ -96,3 +97,4 @@ class SeeSiteAdminView(StaffRequiredMixin, TemplateView):
         context['site'] = site_one
         context['site_tag'] = Site_tag.objects.filter(site_tour=site_one)
         return context
+
