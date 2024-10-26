@@ -130,6 +130,7 @@ button[type="submit"] {
     font-size: 1.2em;  /* Tamaño de fuente */
     cursor: pointer;  /* Cambia el cursor al pasar sobre el botón */
     transition: background-color 0.3s ease;  /* Suaviza el cambio de color */
+
 }
 
 button[type="submit"]:hover {
@@ -210,11 +211,12 @@ button {
     width: 100%;
 }
 
-/*ESTILOS DEL home.html*/
-/*
+
+/*ESTILOS DEL home.html
+
 body {
     background-color: #2B3C4F !important; 
-    color: #333333; 
+    color: #ffffff; 
 }
 
 .home-container {
@@ -254,4 +256,211 @@ body {
 .home-button:hover {
     background-color: #0056b3; 
     transform: translateY(-3px); 
-}*/
+}
+
+/*ESTILOS DE LOGIN
+.login-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+h2 {
+    font-size: 25px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.login-form input[type="text"], 
+.login-form input[type="password"] {
+    width: 20%;
+    padding: 10px;
+    margin: 10px ;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.login-form input[type="text"]:focus, 
+.login-form input[type="password"]:focus {
+    outline: none;
+    background-color: #e6e6e6;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.login-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 30%;
+    margin-top: 15px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #45a049;
+}
+
+p {
+    margin-top: 10px;
+    color: white;
+}
+
+p a {
+    color: #67b7d1;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+
+/*ESTILOS DE REGISTER
+.register-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.register-form {
+    display: inline-block;
+    width: 100%; 
+    max-width: 400px; 
+    text-align: left; 
+}
+
+.register-form input[type="text"], 
+.register-form input[type="email"], 
+.register-form input[type="password"] {
+    width: 100%; 
+    padding: 12px;
+    margin: 10px 0; 
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.register-form input[type="checkbox"] {
+    width: auto; 
+    margin-right: 10px; 
+}
+
+.register-form label {
+    font-size: 16px;
+    color: white;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.register-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+    background-color: #45a049;
+}
+
+p {
+    margin-top: 10px;
+    color: white;
+}
+
+p a {
+    color: #67b7d1;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos generales */
+body {
+    color: #2c3e50; /* Cambiamos el color del texto general */
+}
+
+.answer-container {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f4f4f4; /* Fondo más claro para mejor contraste */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.answer-container h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #2c3e50; /* Color oscuro para buena legibilidad */
+}
+
+.answer-container p {
+    font-size: 18px;
+    color: #34495e; /* Texto más oscuro para buen contraste */
+    margin-bottom: 15px;
+}
+
+.places-list .place-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #ffffff; /* Fondo blanco para el contenedor de lugares */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.place-card h2 {
+    font-size: 24px;
+    color: #2c3e50; /* Color oscuro para el título */
+    margin-bottom: 10px;
+}
+
+.place-card p {
+    font-size: 16px;
+    color: #34495e; /* Texto más oscuro dentro del card */
+    margin-bottom: 10px;
+}
+
+.img-div-2 img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* Estilo del botón */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}

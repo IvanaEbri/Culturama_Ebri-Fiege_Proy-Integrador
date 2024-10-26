@@ -1,15 +1,26 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ☀️</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/logoo.png' %}">
+    
+</head>
+<body>
+    <div class="login-container">
+        <img src="{% static 'images/cultu.png' %}" alt="Logo de Culturama" class="home-logo">
+        <h2>Iniciar Sesión</h2>
+        <form method="post" class="login-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="login-button">Iniciar Sesión</button>
+        </form>
 
-{% block title %}Login - ☀️{% endblock %}
-{% block body %}
-{% load static %}
-<h2>Iniciar Sesion</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Iniciar sesion</button>
-    </form>
+        <p>¿No tienes una cuenta? <a href="{% url 'Register' %}">Regístrate acá</a></p>
+    </div>
 
-    <p>¿No tenes una cuenta? <a href="{% url 'Register' %}">Regístrate acá</a></p>
-
-{% endblock %}
+</body>
+</html>
