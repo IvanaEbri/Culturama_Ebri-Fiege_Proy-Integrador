@@ -13,5 +13,5 @@ urlpatterns = [
     #path('map/', TemplateView.as_view(template_name='map.html'), name='Map'),
     path('route/', Route1View.as_view(), name='Route1'), 
     path('user/route2/<int:tag_id>/', Route2View.as_view(), name='Route2'),
-    path('user/answer/<int:tag_id>/', AnswerView.as_view(), name='Answer'),
+    path('user/answer/<int:tag_id>/<str:cant_paradas>/', AnswerView.as_view(), name='Answer'),
 ]

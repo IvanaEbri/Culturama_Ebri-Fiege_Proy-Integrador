@@ -9,7 +9,7 @@
         {% csrf_token %}
         <div class="button-group">
             {% for tag in tags %}
-                <button type="submit" name="tag_id" value="{{ tag.id_tag }}" class="btn btn-primary">{{ tag.tag }}</button>
+                <button type="submit" name="tag_id" value="{{ tag.id_tag }}" class="btn btn-primary" action= "{% url 'Route2' tag_id=tag.id_tag %}" >{{ tag.tag }}</button>
             {% endfor %}
         </div>  
     </form>
