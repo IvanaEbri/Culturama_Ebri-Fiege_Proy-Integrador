@@ -3,17 +3,21 @@
 {% block title %}Desactivar Sitio - ☀️{% endblock %}
 {% block body %}
 {% load static %}
-
-<h1>Desactivar Sitio</h1>
-    <p>¿Estás seguro de que deseas desctivar este sitio?</p>
+<div class="admin-container">
+    <h1>Desactivar Sitio</h1>
+    <p>¿Estás seguro de que deseas desactivar este sitio?</p>
     <p><b>Nombre: {{ object.site_name }}</b></p>
+    
     <form method="post">
         {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Desactivar</button>
+        {{ form.as_p }}
+        <button type="submit" class="admin-button">Desactivar</button>
     </form>
+    
     <div>
         <a href="{% url 'SitesAdmin' %}">
-            <button>Cancelar</button></a>
+            <button class="admin-button">Cancelar</button>
+        </a>
     </div>
+</div>
 {% endblock %}

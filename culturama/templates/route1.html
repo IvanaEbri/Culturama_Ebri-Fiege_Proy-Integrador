@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Seleccionar Temática{% endblock %}
+{% block title %}Seleccionar Temática - ☀️{% endblock %}
 
 {% block body %}
 <div class="recorrido-container">
-    <h1>Elige una temática</h1>
+    <h1><strong>Elige una temática</strong></h1>
+    <img src="{% static 'images/sinfondo.png' %}" alt="Imagen sin fondo" class="tematica-image">
     <form method="post">
         {% csrf_token %}
         <div class="button-group">
             {% for tag in tags %}
-                <button type="submit" name="tag_id" value="{{ tag.id_tag }}" class="btn btn-primary" action= "{% url 'Route2' tag_id=tag.id_tag %}" >{{ tag.tag }}</button>
+                <button type="submit" name="tag_id" value="{{ tag.id_tag }}" class="btn btn-primary">{{ tag.tag }}</button>
             {% endfor %}
-        </div>  
+        </div>
     </form>
 </div>
-
 {% endblock %}
 

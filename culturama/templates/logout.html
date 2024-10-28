@@ -1,19 +1,27 @@
-{% extends 'base.html' %}
-
-{% block title %}Logout - ☀️{% endblock %}
-{% block body %}
-{% load static %}
-<h2>¿Quieres cerrar sesión?</h2>
-    <form action="{% url 'Logout' %}" method="post">
-        {% csrf_token %}
-        <div>
-            <button type="submit">Cerrar Sesion</button>
-        </div>
-    </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout - ☀️</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/logoo.png' %}">
+</head>
+<body>
+    <div class="logout-container">
+        <br>
+        <br>
+        <img src="{% static 'images/cultuu.jpg' %}" alt="Logo de Culturama triste" class="out-logo">
+        <br>
+        <h1 class="logout-title">¿Querés cerrar la sesión, {{ user.first_name }}?</h1>
+        <form action="{% url 'Logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="logout-button">Cerrar Sesión</button>
+        </form>
+        <a href="{% url 'HomeUser' %}">
+            <button class="logout-button">Cancelar</button>
+        </a>
     </div>
-    <div>
-    <a href="{% url 'home' %}">
-        <button>Cancelar</button></a>
-    </div>
-    
-{% endblock %}
+</body>
+</html>

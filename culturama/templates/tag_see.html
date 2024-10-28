@@ -5,12 +5,13 @@
 {% block body %}
 {% load static %}
 
-<a href="{% url 'SitesAdmin' %}">
-    <button>Volver</button>
-</a>
+<div class="admin-container">
+    <a href="{% url 'SitesAdmin' %}">
+        <button class="admin-button">Volver</button>
+    </a>
 
-<h2>Detalles de la Etiqueta: {{ tag.tag }}</h2>
+    <h2>Detalles de la Etiqueta: {{ tag.tag }}</h2>
 
-<p><b>Etiqueta: </b>{{ tag.tag }}</p>
-
+    <p><b>Etiqueta: </b>{{ tag.tag }}</p>
+</div>
 {% endblock %}

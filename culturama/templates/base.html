@@ -5,18 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Culturama{% endblock %}</title>
     {% load static %}
-    
-
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="icon" type="image/png" href="{% static 'images/logoo.png' %}">
-    
-
-    <!-- Nav -->
     <nav class="navbar">
         <div class="nav-hamburguer">
-            <button onclick="toggleDropdown()">☰</button>
+            <button id="menu-toggle" onclick="toggleDropdown()">☰</button>
             <div id="dropdownMenu" style="display: none;">
                 <ul>
+                    <li><a href="{% url 'HomeUser' %}">Inicio</a></li>
+                    <li><a href="{% url 'Map' %}">Mapa</a></li>
+                    <li><a href="{% url 'Route1' %}">Recorrido</a></li>
                     <li><a href="{% url 'ConfirmLogout' %}">Cerrar Sesión</a></li>
                 </ul>
             </div>

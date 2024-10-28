@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Elige tus Sitios{% endblock %}
+{% block title %}Elige tus Sitios - ☀️{% endblock %}
 
 {% block body %}
 <div class="recorrido-container">
-    <h1>¿Cuántas paradas hacemos?</h1>
+    <h1><strong>¿Cuántas paradas hacemos?</strong></h1>
+    <img src="{% static 'images/sinfondo.png' %}" alt="Imagen sin fondo" class="tematica-image">
     
     {% comment %} <form method="post" action="{% url 'Answer' tag_id=tag.id_tag cant_paradas=6 %}"> 
         {% csrf_token %}
@@ -23,15 +25,18 @@
         </div>
     </form> {% endcomment %}
 
-    <form method="post">
-        {% csrf_token %}
-        <div class="button-group">
-            {% for sites in site_options %}
-                <button type="submit" name="sites" value="{{ sites }}" class="btn btn-primary" action= "{% url 'Answer' tag_id=tag.id_tag  cant_paradas=sites %}" >{{ sites }} {% if sites == 1 %}lugar{% else %}lugares {% endif %}</button>
-            {% endfor %}
-            <button type="submit" name="sites" value="random" class="surprise-btn" action= "{% url 'Answer' tag_id=tag.id_tag cant_paradas="random" %}" >Sorpréndeme</button>
-        </div>  
-    </form>
+<form method="post">
+    {% csrf_token %}
+    <div class="button-group">
+        {% for sites in site_options %}
+            <button type="submit" name="sites" value="{{ sites }}" class="btn btn-primary">
+                {{ sites }} {% if sites == 1 %}lugar{% else %}lugares{% endif %}
+            </button>
+        {% endfor %}
+        <button type="submit" name="sites" value="random" class="surprise-btn">Sorpréndeme</button>
+    </div>  
+</form>
+
     
 </div>
 {% endblock %}

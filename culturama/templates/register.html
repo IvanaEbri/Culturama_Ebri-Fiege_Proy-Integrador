@@ -8,19 +8,18 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <div class="register-container">
-        
-        <img src="{% static 'images/cultu.png' %}" alt="Logo de Culturama" class="home-logo">
+    <div class="registration-container"> 
+        <img src="{% static 'images/cultu.png' %}" alt="Logo de Culturama" class="registration-logo"> 
         <br>
-        <h2>Registro</h2>
-        <form method="post" class="register-form">
+        <h1>Registro</h1>
+        <form method="post" class="registration-form"> 
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="register-button">Registrarse</button>
+            <button type="submit" class="registration-button">Registrarse</button> 
         </form>
 
-        <p>¿Ya tenes una cuenta? <a href="{% url 'Login' %}">Inicia sesión acá</a></p>
+        <p class= "pp">¿Ya tenes una cuenta? <a href="{% url 'Login' %}">Inicia sesión acá</a></p>
     </div>
-
 </body>
 </html>
+

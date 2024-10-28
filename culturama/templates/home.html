@@ -7,25 +7,20 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="icon" type="image/png" href="{% static 'images/logoo.png' %}">
-    
 </head>
 <body>
     <div class="home-container">
         <img src="{% static 'images/cultu.png' %}" alt="Logo de Culturama" class="home-logo">
-        <br>
-        <p class="home-description">Inicia sesión o regístrate para continuar.</p>
+        <h2 class="home-description">Inicia sesión o regístrate para continuar.</h2>
 
         <div class="button-container">
             <a href="{% url 'Login' %}">
-                <button class="home-button">Login</button>
+                <button class="home-button">Iniciar Sesión</button>
             </a>
-            
             <a href="{% url 'Register' %}">
-                <button class="home-button">Registro</button>
+                <button class="home-button">Registrarse</button>
             </a>
         </div>
-
     </div>
-
 </body>
 </html>

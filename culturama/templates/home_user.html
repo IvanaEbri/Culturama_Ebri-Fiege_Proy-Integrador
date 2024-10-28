@@ -1,51 +1,60 @@
 {% extends 'base.html' %}
 
-{% block title %}Inicio Usuario{% endblock %}
+{% block title %}HOME USURARIO - ☀️{% endblock %}
 
 {% load static %}
 
 {% block body %}
-<!-- Carrusel de imágenes -->
-<div id="carouselExample" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="{% static 'images/river.jpeg' %}" class="d-block w-100" alt="Imagen 1">
+
+<div class="home-user-container">
+
+    <div id="carouselExample" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'images/riverr.jpeg' %}" class="d-block w-100" alt="Imagen 1">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/artesss.jpeg' %}" class="d-block w-100" alt="Imagen 2">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/fragata.jpeg' %}" class="d-block w-100" alt="Imagen 3">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/pesca3.jpeg' %}" class="d-block w-100" alt="Imagen 4">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/rosedal.jpeg' %}" class="d-block w-100" alt="Imagen 5">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/teatroco.jpeg' %}" class="d-block w-100" alt="Imagen 6">
+            </div>
         </div>
-        <div class="carousel-item">
-            <img src="{% static 'images/artes.jpg' %}" class="d-block w-100" alt="Imagen 2">
-        </div>
-        <div class="carousel-item">
-            <img src="{% static 'images/fragata.jpg' %}" class="d-block w-100" alt="Imagen 3">
-        </div>
-        <div class="carousel-item">
-            <img src="{% static 'images/puentee.jpeg' %}" class="d-block w-100" alt="Imagen 4">
-        </div>
-        <div class="carousel-item">
-            <img src="{% static 'images/rosedal.jpg' %}" class="d-block w-100" alt="Imagen 5">
-        </div>
-        <div class="carousel-item">
-            <img src="{% static 'images/teatroo.webp' %}" class="d-block w-100" alt="Imagen 6">
-        </div>
+        <button class="carousel-control-prev" type="button" data-target="#carouselExample" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-target="#carouselExample" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Siguiente</span>
+        </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-target="#carouselExample" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Anterior</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-target="#carouselExample" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Siguiente</span>
-    </button>
+    
+    <div class="context-section" >
+        <h2><strong>¡Te invitamos a que descubramos los Tesoros de la Ciudad!</strong></h2>
+        <p>
+            Bienvenido a <strong>Culturama</strong>. A través de esta plataforma, vas a poder armar tu recorrido según la temática que desees conocer, la cantidad de paradas que tengas ganas de hacer y sumergirte en el patrimonio cultural de nuestra ciudad.
+            Elegí entre dejarte guiar por un <strong>recorrido</strong> especialmente diseñado para vos o explorar los lugares de forma autónoma a través del <strong>mapa</strong> interactivo😉. 
+            ¡Empezá tu aventura cultural ahora!
+        </p>
+    </div>
+
+    <div class="home-buttons">
+        <a href="{% url 'Route1' %}">
+            <button>Recorrido</button>
+        </a>
+        <a href="{% url 'Map' %}">
+            <button>Mapa</button>
+        </a>
+    </div>
 </div>
-
-
-<div class="home-buttons">
-    <a href="{% url 'Route1' %}">
-        <button>Recorrido</button>
-    </a>
-    <a href="{% url 'Map' %}">
-        <button>Mapa</button>
-    </a>
-</div>
-
 {% endblock %}
-

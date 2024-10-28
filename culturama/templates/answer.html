@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Tu Recorrido{% endblock %}
+{% block title %}Tu Recorrido - ☀️{% endblock %}
 
 {% block body %}
 <div class="answer-container">
-    <h1>Tu recorrido personalizado</h1>
-
-
-    <p>Has seleccionado {{ num_paradas }} {{ num_paradas|pluralize:"lugar,lugares" }} con la temática "{{ tag }}".</p>
+    <h1><strong>Tu recorrido personalizado</strong></h1>
+    <p>Seleccionaste {{ num_paradas }} {{ num_paradas|pluralize:"lugar,lugares" }} con la temática "{{ tag }}".</p>
 
 
     <div class="places-list">
@@ -15,24 +14,31 @@
             <div class="place-card">
                 <h2>{{ lugar.site_name }}</h2>
                 <p>{{ lugar.adress }}</p>
-                <p>{{ lugar.description }}</p>
-                <td>
-                    <div class="img-div-2">
+                
+                <div class="img-div-2">
                     {% if lugar.image %}
                         <img src="{{ lugar.image.url }}" alt="{{ lugar.site_name }}">
                     {% else %}
                         <p>Sin imagen disponible</p>
                     {% endif %}
+                    <div class="popup-description">
+                        {{ lugar.description }}
                     </div>
-                </td>
+                </div>
             </div>
         {% empty %}
             <p>No se encontraron lugares para esta etiqueta.</p>
         {% endfor %}
     </div>
+
+
+    <div class="foo">
+        <a href="{% url 'HomeUser' %}" class="btn-sun">
+            <img src="{% static 'images/sonrojado.png' %}" alt="Icono de sol" class="sol-iconn">
+            <p class="back-text">Volver al inicio</p>
+        </a>
+    </div>
 </div>
 
-<div>
-    <a href="{% url 'HomeUser' %}" class="btn">Volver al inicio</a>
-</div>
+
 {% endblock %}
